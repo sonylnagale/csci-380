@@ -1,8 +1,15 @@
 // set inital value to zero
-let count = 0;
+let count = 2;
 // select value and buttons
 const value = document.querySelector("#value");
 const btns = document.querySelectorAll(".btn");
+
+console.log(btns)
+
+// for (let i = 0; i < btns.length; i++) {
+//   // btn.addEventListener()
+// }
+
 
 btns.forEach(function (btn) {
   btn.addEventListener("click", function (e) {
@@ -10,7 +17,8 @@ btns.forEach(function (btn) {
     if (styles.contains("decrease")) {
       count--;
     } else if (styles.contains("increase")) {
-      count++;
+      count *= 2;
+      // count = count * 2
     } else {
       count = 0;
     }
