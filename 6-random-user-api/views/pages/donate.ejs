@@ -1,0 +1,119 @@
+<% include ../snippets/header %>
+
+<body class="donate">
+
+  <% include ../snippets/nav %>
+
+  <% var subpageData = {title: "Donate", subTitle: "Help keep our API free by donating!"}; %>
+  <% include ../snippets/subpage %>
+
+  <div class="frame">
+
+    <section>
+      <div class="floating_icon">
+        <img src="img/img_donate.png" alt="Donate now!">
+      </div>
+    </section>
+
+    <section id="donate">
+      <h2>How can I donate?</h2>
+      <p>You can donate using our secure Stripe donation button below. Please enter your desired donation and click "Donate Now". But you're pretty smart and probably figured that out on your own didn't you?</p>
+
+      <script src="https://checkout.stripe.com/checkout.js"></script>
+
+      <div class="donate_form">
+        <form action="?" method="POST">
+            <div id="recaptcha" style="display:inline-block"></div>
+        </form>
+          $ <input class="donateInput" id="donation_amount" type="number" min="1.00" step="1.00" value="5.00" />
+        <button id="donate_button" class="button">Donate Now</button><br><br>
+        <textarea class="comment" rows="3" cols="60" id="comment" placeholder="Leave a comment"></textarea>
+      </div>
+
+      <script>
+        var handler = StripeCheckout.configure({
+          key: '<%=stripePublishKey%>',
+          image: 'img/donate_small.png',
+          token: function(token, args) {
+            token.price = Number(donationAmt());
+
+            $.ajax({
+              type: 'POST',
+              url: '/donate',
+              data: { data: JSON.stringify({token, comment: document.getElementById('comment').value, recaptcha: grecaptcha.getResponse()}) },
+              success: function(data) {
+                window.alert("Thanks for your donation!");
+              },
+              error: function(data) {
+                window.alert("There was a problem processing your donation. Please make sure your card information is valid and try again.");
+              }
+            });
+          }
+        });
+
+        document.getElementById('donate_button').addEventListener('click', function(e) {
+          handler.open({
+            name: 'Random User API',
+            description: 'Thanks for donating!',
+            amount: Number(donationAmt())
+          });
+          e.preventDefault();
+        });
+
+        function donationAmt() {
+          let input = document.getElementById('donation_amount');
+          let amt = input.value;
+
+          if (Number(amt) < 1) {
+            input.value = "1.00";
+            return 100;
+          } else if (amt.indexOf('.') === -1) {
+            input.value = amt + ".00";
+            return Number(amt)*100;
+          } else {
+            input.value = Number(amt).toFixed(2);
+            return Number((input.value*100).toFixed(0));
+          }
+        }
+      </script>
+
+      <%//<p style="text-align: center;">Don't have your card details handy? <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QBRGZ79MNX9W6" target="_blank">Click here to donate via PayPal</a></p>%>
+
+
+    </section>
+
+    <section id="why">
+      <h2>Why should I donate?</h2>
+      <p>The Random User Generator API is a 100% free service and is paid for out of our own pockets. <strong>We generate up to <span id='gen'><%-stats%></span> random users everyday</strong>, and the servers involved to deliver that information is costly. Random User Generator will never require a paid subscription to use our service, and we strive to continue providing this service free to you for life. Donating isn't required, but it will help us continue to improve and enhance our service.</p>
+    </section>
+
+    <section class="advertisement">
+      <h2>Advertising</h2>
+      <p>Alternatively, we also earn money from you clicking on the various advertisements you see on the site. If you aren't seeing ads, it's most likely because you are running an adblock service. We don't blame you, we hate ads too! However it would help us out a lot of you disabled your adblock service for our website.</p>
+      <p>If not, that's cool too. We love you either way.</p>
+    </section>
+    <% include ../snippets/ads %>
+  </div>
+  <% include ../snippets/footer %>
+  <% include ../snippets/analytics %>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+  <script>
+  var onloadCallback = function() {
+    grecaptcha.render('recaptcha', {
+      'sitekey' : '<%=googleCaptchaKey%>',
+      'callback': 'recaptchaCallback'
+    });
+    let btn = document.getElementById('donate_button');
+    btn.style.cursor = "not-allowed";
+    btn.style.opacity = .5;
+    btn.disabled = true;
+  };
+  function recaptchaCallback() {
+    let btn = document.getElementById('donate_button');
+    btn.style.cursor = "pointer";
+    btn.style.opacity = 1;
+    btn.disabled = false;
+  }
+  </script>
+</body>
+</html>

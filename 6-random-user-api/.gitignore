@@ -1,0 +1,7 @@
+.DS_Store
+node_modules
+public/dist
+.viewsMin
+npm-debug.log
+public/download
+.nyc_output
