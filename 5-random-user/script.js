@@ -5,6 +5,8 @@ const fullname = document.getElementById('fullname');
 const username = document.getElementById('username');
 const email = document.getElementById('email');
 const city = document.getElementById('city');
+const street = document.getElementById('street')
+const zip = document.getElementById('zip')
 const btn = document.getElementById('btn');
 
 btn.addEventListener("click", () => {
@@ -30,6 +32,8 @@ function updateProfile(profile) {
   fullname.innerHTML = profile.results[0].name.first + " " + profile.results[0].name.last;
   username.innerHTML = profile.results[0].login.username;
   email.innerHTML = profile.results[0].email;
+  street.innerHTML = profile.results[0].location.street.number;
+  zip.innerHTML = profile.results[0].location.postcode;
   city.innerHTML = profile.results[0].location.city;
   return 1;
 }

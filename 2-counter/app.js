@@ -1,5 +1,5 @@
 // set inital value to zero
-let count = 2;
+let count = 0;
 // select value and buttons
 const value = document.querySelector("#value");
 const btns = document.querySelectorAll(".btn");
@@ -9,15 +9,23 @@ console.log(btns)
 // for (let i = 0; i < btns.length; i++) {
 //   // btn.addEventListener()
 // }
-
+const companies = ["Uber", "Lyft", "Google", "Apple", "SpaceX", "Tinder"]
 
 btns.forEach(function (btn) {
   btn.addEventListener("click", function (e) {
     const styles = e.currentTarget.classList;
     if (styles.contains("decrease")) {
+      if (count <= 0){
+        count = companies.length ;
+      }
       count--;
     } else if (styles.contains("increase")) {
-      count *= 2;
+        if(count >= companies.length)
+        {
+          count = 0 ;
+
+        }
+      count++;
       // count = count * 2
     } else {
       count = 0;
@@ -32,6 +40,6 @@ btns.forEach(function (btn) {
     if (count === 0) {
       value.style.color = "#222";
     }
-    value.textContent = count;
+    value.textContent = companies[count];
   });
 });
