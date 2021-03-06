@@ -28,7 +28,10 @@ const titles = {
   let views = await readdir('.viewsMin/pages');
 
   router.get('/', (req, res, next) => {
-    res.render('pages/index', {title: 'Home'});
+
+    console.log('something');
+    // res.render('pages/index', {title: 'Home'});
+    res.sendStatus(404)
   });
   
   router.get('/:page?', (req, res, next) => {
