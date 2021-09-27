@@ -9,19 +9,26 @@
 
 <body>
     <h1>Hello World!</h1>
+    <h2>Goodbye Cruel World!!!</h2>
 
 
     <script>
-        const x = 1;
-        const y = 2;
+        
 
-        if (x > y) {
-            console.log("x is greater than y");
-        } else {
-            console.log("y is greater than x");
+        for (x = 0; x <= 100; x++) {
+            if (x % 15 == 0) {
+                console.log(x + " fizzbuzz");
+            }
+            else if (x % 5 == 0) {
+                console.log(x + " buzz");
+            }
+            else if (x % 3 == 0) {
+                console.log(x + " fizz");
+            }
+            else {
+                console.log(x);
+            }
         }
-
-        console.log(Math.sqrt(4));
 
     </script>
 </body>
