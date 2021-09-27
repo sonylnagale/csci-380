@@ -9,19 +9,38 @@
 
 <body>
     <h1>Hello World!</h1>
+    <h2>Goodbye World!!</h2>
 
 
     <script>
-        const x = 1;
+        let x = 1;
         const y = 2;
+        var z = 3;
 
         if (x > y) {
             console.log("x is greater than y");
+        } else if (x === y) {
+            console.log("x is equal to y");
         } else {
             console.log("y is greater than x");
         }
 
         console.log(Math.sqrt(4));
+
+        // if a number if evenly divisible by 3, console.log 'fizz'
+        // if a number if evenly divisible by 5, console.log 'buzz'
+        // if a number if evenly divisible by 15, console.log 'fizzbuzz'
+        for (let i=0; i<=100; i++){
+            if (i % 3 ==0 && i % 5 ==0){
+                console.log("fizzbuzz");
+            }else if (i % 3 ==0 ){
+            console.log("fizz");
+            }else if (i % 5 ==0){
+            console.log("buzz");
+            }else{
+                console.log(i);
+            }
+        }
 
     </script>
 </body>
