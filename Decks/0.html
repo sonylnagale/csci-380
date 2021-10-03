@@ -1,0 +1,575 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	<link rel="stylesheet" href="css/sonyl.css">
+
+</head>
+
+<body>
+	<div class="theme-font-montserrat theme-color-black-blue" style="width: 100%; height: 100%;">
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<div class="sl-block" data-block-type="text"
+						style="width: 800px; left: 81px; top: 218px; height: auto;">
+						<div class="sl-block-content headline"
+							style="z-index: 11; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui"
+							data-has-line-height="">
+							<h1>Data Types, Conditionals, and Loops&nbsp;</h1>
+						</div>
+					</div>
+
+
+
+
+					<div class="sl-block" data-block-type="iframe"
+						style="min-width: 30px; min-height: 30px; width: 1264px; height: 616px; left: -152px; top: 271px;">
+						<div class="sl-block-content" style="z-index: 10;"><iframe webkitallowfullscreen=""
+								mozallowfullscreen="" allowfullscreen=""
+								sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation"
+								data-src="https://nagale.com/ga-js-dv/intro.html" allow="fullscreen"></iframe></div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text"
+						style="width: 873px; left: 80px; top: 140px; height: auto;">
+						<div class="sl-block-content headline"
+							style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui"
+							data-has-line-height="">
+							<h1>Learning Objectives</h1>
+						</div>
+					</div>
+
+
+
+
+
+
+					<div class="sl-block" data-block-type="text"
+						style="height: auto; width: 893px; left: 60px; top: 272px;">
+						<div class="sl-block-content" style="z-index: 14;" data-has-custom-html="">
+							<ul>
+								<li class="visible">Describe the concept of a "data type" and how it relates to
+									variables.</li>
+								<li class="" data-fragment-index="0" style="margin-top: 0.25em;">Declare, assign
+									to, and manipulate data stored in a variable.</li>
+								<li class="" data-fragment-index="1" style="margin-top: 0.25em;">Create arrays
+									and access values in them.</li>
+								<li class="" data-fragment-index="2" style="margin-top: 0.25em;">Iterate over
+									and manipulate values in an array.</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text"
+						style="width: 821px; left: 80px; top: 140px; height: auto;">
+						<div class="sl-block-content headline"
+							style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui"
+							data-has-line-height="">
+							<h1>What is a datatype?</h1>
+						</div>
+					</div>
+
+
+
+
+
+
+					<div class="sl-block" data-block-type="text"
+						style="height: auto; width: 800px; left: 80px; top: 280px;">
+						<div class="sl-block-content" style="z-index: 14;">
+							<p><em>"A particular kind of data item, as defined by the values it can take, the
+									programming language used, or the operations that can be performed on it."</em></p>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text"
+						style="width: 821px; left: 80px; top: 140px; height: auto;">
+						<div class="sl-block-content headline"
+							style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui"
+							data-has-line-height="">
+							<h1>What is a datatype?</h1>
+						</div>
+					</div>
+
+
+
+
+
+
+					<div class="sl-block" data-block-type="table"
+						style="height: auto; width: 800px; left: 80px; top: 275px;">
+						<div class="sl-block-content example-table" style="z-index: 14;" data-table-rows="6"
+							data-table-padding="5px" data-table-cols="3">
+							<table>
+								<tbody>
+									<tr>
+										<th style="width: 123px;">Data Type</th>
+										<th style="width: 394px;">Description</th>
+										<th>Example</th>
+									</tr>
+									<tr>
+										<td style="width: 123px;">String</td>
+										<td style="width: 394px;">Single words or sentences surrounded by double or
+											single quotes<br>
+											&nbsp;</td>
+										<td>"puppies", "lots of puppies!"</td>
+									</tr>
+									<tr>
+										<td style="width: 123px;">NUMBER</td>
+										<td style="width: 394px;">Whole numbers or decimals</td>
+										<td>42, 1024, 3.14159</td>
+									</tr>
+
+									<tr>
+										<td style="width: 123px;">Boolean</td>
+										<td style="width: 394px;">Represents either true or false</td>
+										<td>true, false</td>
+									</tr>
+									<tr>
+										<td style="width: 123px;">​Array</td>
+										<td style="width: 394px;">Collections of Data</td>
+										<td>['Superman', 'Batman', 'Spider-Man']</td>
+									</tr>
+									<tr>
+										<td style="width: 123px;">Object</td>
+										<td style="width: 394px;">Many things! We'll get into this later</td>
+										<td>{ oooo so mysterious }</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="text"
+						style="height: auto; width: 800px; left: 80px; top: 622px;">
+						<div class="sl-block-content fragment" style="z-index: 15;" data-fragment-index="0">
+							<p style="text-align:left">Strings, booleans, numbers, and objects are all primitives.
+								Arrays are derived from object.</p>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text"
+						style="width: 880px; left: 80px; top: 140px; height: auto;">
+						<div class="sl-block-content headline"
+							style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui"
+							data-has-line-height="">
+							<h1>Datatypes: Practice</h1>
+						</div>
+					</div>
+
+
+
+
+
+
+					<div class="sl-block" data-block-type="code"
+						style="width: 800px; height: 106px; left: 81px; top: 350px;">
+						<div class="sl-block-style" style="z-index: 14; transform: rotate(360deg);">
+							<div class="sl-block-content fragment notranslate" style="z-index: 14;"
+								data-fragment-index="0">
+								<pre class="javascript"><code>// typeof();
+		
+		typeof(37) === 'number';
+		typeof("37"); // ?
+		37 == "37";</code></pre>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="code"
+						style="width: 799px; height: 31px; left: 81px; top: 475px;">
+						<div class="sl-block-content fragment notranslate" style="z-index: 15;" data-fragment-index="1">
+							<pre class="javascript"><code>typeof('hello world') === 'string';</code></pre>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="code"
+						style="width: 800px; height: 78px; left: 80px; top: 526px;">
+						<div class="sl-block-content fragment notranslate" style="z-index: 16;" data-fragment-index="2">
+							<pre class="javascript"><code>const array = ['hello world', 'I am an array!'];
+		
+		typeof(array);</code></pre>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="text"
+						style="height: auto; width: 881px; left: 74px; top: 280px;">
+						<div class="sl-block-content" style="z-index: 17; font-size: 94%;" data-has-custom-html="">
+							<p style="text-align: left;">The command <code>typeof()</code> tells you the type of the
+								parameter.</p>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="text"
+						style="height: auto; width: 600px; left: 81px; top: 630px;">
+						<div class="sl-block-content fragment" style="z-index: 18;" data-fragment-index="3">
+							<p style="text-align: left;">Wait, WTF?</p>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text"
+						style="width: 821px; left: 79px; top: 140px; height: auto;">
+						<div class="sl-block-content headline"
+							style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui"
+							data-has-line-height="">
+							<h1>Words</h1>
+						</div>
+					</div>
+
+
+
+
+
+
+
+					<div class="sl-block" data-block-type="text"
+						style="height: auto; width: 800px; left: 81px; top: 341px;">
+						<div class="sl-block-content" style="z-index: 14;" data-has-custom-html="" dir="ui">
+							<ul>
+								<li style="text-align:left">Variables: store data types in a computer’s memory so that
+									they can be referenced later</li>
+								<li class="" data-fragment-index="0" style="text-align:left">Keywords: reserved
+									words in a language that cannot be used for variable or function names</li>
+								<li class="" data-fragment-index="1" style="text-align:left"><span
+										style="color:rgb(255, 255, 255); text-align:left">There are two different
+										variable keywords used, named <code>let</code> and <code>const</code>. However,
+										at the end of the day, they're still going to be a variable.</span></li>
+								<li><code>let</code> implies mutability, while <code>const</code> implies a constant
+								</li>
+							</ul>
+						</div>
+					</div>
+
+
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text"
+						style="width: 874px; left: 80px; top: 140px; height: auto;">
+						<div class="sl-block-content headline"
+							style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui"
+							data-has-line-height="">
+							<h1>Arrays:</h1>
+
+							<h1>Collections of Data</h1>
+						</div>
+					</div>
+
+
+
+
+
+
+					<div class="sl-block" data-block-type="text"
+						style="height: auto; width: 880px; left: 77px; top: 350px;">
+						<div class="sl-block-style" style="z-index: 14; transform: rotate(360deg);">
+							<div class="sl-block-content" style="z-index: 14;">
+								<p style="color:rgb(36, 41, 46); text-align:start"><span style="color:#FFFFFF">Arrays
+										are great for:</span></p>
+
+								<ul style="color:rgb(36, 41, 46)">
+									<li class="" data-fragment-index="0">
+										<p>Storing data</p>
+									</li>
+									<li class="" data-fragment-index="1">
+										<p>Enumerating data (<em>i.e.</em>, using an index to find them)</p>
+									</li>
+									<li class="" data-fragment-index="2">
+										<p>Arrays compose a data structure that is similar in concept to a list</p>
+									</li>
+									<li class="" data-fragment-index="3">
+										<p>Elements</p>
+									</li>
+									<li class="" data-fragment-index="4">
+										<p>In JavaScript, arrays can dynamically grow and shrink in size (different than
+											some other languages)</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text"
+						style="width: 874px; left: 80px; top: 140px; height: auto;">
+						<div class="sl-block-content headline"
+							style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui"
+							data-has-line-height="">
+							<h1>Arrays, Continued</h1>
+						</div>
+					</div>
+
+
+
+
+
+
+					<div class="sl-block" data-block-type="code"
+						style="width: 880px; height: 194px; left: 80px; top: 350px;">
+						<div class="sl-block-content notranslate" style="z-index: 14;">
+							<pre class="javascript"><code>const friends = ['Moe', 'Larry', 'Curly'];
+=&gt; ['Moe', 'Larry', 'Curly']
+
+// First friend
+const firstFriend = friends[0];
+	=&gt; 'Moe'
+// Get the last friend
+const lastFriend = friends[2]
+=&gt; 'Curly'</code></pre>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="text"
+						style="height: auto; width: 600px; left: 80px; top: 280px;">
+						<div class="sl-block-content" style="z-index: 15;">
+							<p style="text-align:start">Arrays: [0] indexed</p>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text"
+						style="width: 874px; left: 80px; top: 140px; height: auto;">
+						<div class="sl-block-content headline"
+							style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui"
+							data-has-line-height="">
+							<h1>Working with Arrays</h1>
+						</div>
+					</div>
+
+
+
+
+
+
+					<div class="sl-block" data-block-type="code"
+						style="width: 880px; height: 81px; left: 80px; top: 420px;">
+						<div class="sl-block-content notranslate" style="z-index: 14;">
+							<pre class="javascript"><code>const a = ["dog", "cat", "hen"];
+		
+		a.length;
+		=&gt; 3</code></pre>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="text"
+						style="height: auto; width: 760px; left: 80px; top: 350px;">
+						<div class="sl-block-content" style="z-index: 15;" data-has-custom-html="">
+							<p style="text-align: left;">Array literal:</p>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text"
+						style="width: 874px; left: 80px; top: 140px; height: auto;">
+						<div class="sl-block-content headline"
+							style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui"
+							data-has-line-height="">
+							<h1>Array Methods</h1>
+						</div>
+					</div>
+
+
+
+
+
+
+					<div class="sl-block" data-block-type="text"
+						style="height: auto; width: 894px; left: 66px; top: 280px;">
+						<div class="sl-block-content" style="z-index: 14;" data-has-custom-html="">
+							<ul style="color:rgb(36, 41, 46)">
+								<li class="visible">
+									<p><code>a.toString()</code> - Returns a string with the <code>toString()</code> of
+										each element separated by commas.</p>
+								</li>
+								<li class="" data-fragment-index="0">
+									<p><code>a.pop()</code> - Removes and returns the last item.</p>
+								</li>
+								<li class="" data-fragment-index="1">
+									<p><code>a.push(item1, ..., itemN)</code> - Adds one or more items to the end.</p>
+								</li>
+								<li class="" data-fragment-index="2">
+									<p><code>a.reverse()</code> - Reverses the array.</p>
+								</li>
+								<li class="" data-fragment-index="3">
+									<p><code>a.shift()</code> - Removes and returns the first item.</p>
+								</li>
+								<li class="" data-fragment-index="4">
+									<p><code>a.unshift([item])</code> - Prepends items to the start of the array.</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text"
+						style="width: 874px; left: 80px; top: 140px; height: auto;">
+						<div class="sl-block-content headline"
+							style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui"
+							data-has-line-height="">
+							<h1>But wait, there's more!</h1>
+						</div>
+					</div>
+
+
+
+
+
+
+					<div class="sl-block" data-block-type="text"
+						style="height: auto; width: 600px; left: -76px; top: 345px;">
+						<div class="sl-block-content" style="z-index: 14;" data-has-custom-html="">
+							<ul style="color:rgb(36, 41, 46)">
+								<li><code>Array.forEach()</code></li>
+								<li><code>Array.every()</code></li>
+								<li><code>Array.some()</code></li>
+								<li><code>Array.filter()</code></li>
+								<li><code>Array.map()</code></li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text"
+						style="width: 874px; left: 80px; top: 140px; height: auto;">
+						<div class="sl-block-content headline"
+							style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui"
+							data-has-line-height="">
+							<h1>Why are we spending so much time on Arrays vs. other datatypes?</h1>
+						</div>
+					</div>
+
+
+
+
+
+
+					<div class="sl-block" data-block-type="text"
+						style="height: auto; width: 880px; left: -264px; top: 554px;">
+						<div class="sl-block-content fragment" style="z-index: 14;" dir="ui" data-fragment-index="0">
+							<ul>
+								<li style="text-align: left;">Useful</li>
+								<li style="text-align: left;">Prevalent</li>
+								<li style="text-align: left;">Complicated</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text"
+						style="width: 874px; left: 80px; top: 140px; height: auto;">
+						<div class="sl-block-content headline"
+							style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui"
+							data-has-line-height="">
+							<h1><code>for</code> loops</h1>
+						</div>
+					</div>
+
+
+
+
+
+
+					<div class="sl-block" data-block-type="code"
+						style="width: 800px; height: 114px; left: 80px; top: 350px;">
+						<div class="sl-block-content notranslate" style="z-index: 14;">
+							<pre class="javascript"><code>const pets = ['Dogs', 'Cats', 'Rabbits', 'I hate all animals'];
+		
+for (let i = 0; i &lt; pets.length; i++) {
+	console.log(pets[i] + ' ');
+}</code></pre>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="text"
+						style="height: auto; width: 600px; left: 80px; top: 490px;">
+						<div class="sl-block-content" style="z-index: 15;" data-fragment-index="0">
+							<p style="text-align: left;">What will this say?</p>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text"
+						style="width: 873px; left: 80px; top: 140px; height: auto;">
+						<div class="sl-block-content headline"
+							style="z-index: 11; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui"
+							data-has-line-height="">
+							<h1>Math</h1>
+						</div>
+					</div>
+
+
+
+
+
+
+
+					<div class="sl-block" data-block-type="text"
+						style="height: auto; min-width: 30px; min-height: 30px; width: 800px; left: 80px; top: 475px;">
+						<div class="sl-block-content" style="z-index: 15;">
+							<p style="text-align:left"><em>So</em> fun. <em>Much</em> woot.</p>
+
+							<p style="text-align:left">Find the area of a triangle where lengths of the three of its
+								sides are 5, 6, 7.</p>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="text"
+						style="height: auto; min-width: 30px; min-height: 30px; width: 800px; left: 80px; top: 615px;">
+						<div class="sl-block-content" style="z-index: 16;" dir="ui">
+							<p style="text-align:left"><span
+									style="font-size:0.7em">https://gist.github.com/sonylnagale/b37a204ed887c18eeed8391ce0bed3e4</span>
+							</p>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image"
+						style="min-width: 1px; min-height: 1px; width: 374px; height: 230px; left: 293px; top: 235px;">
+						<div class="sl-block-content" style="z-index: 17;"><img style="" data-natural-width="374"
+								data-natural-height="230" data-lazy-loaded=""
+								data-src="https://media.giphy.com/media/26xBI73gWquCBBCDe/giphy.gif"></div>
+					</div>
+				</section>
+				<section>
+
+
+
+
+
+
+
+					<div class="sl-block" data-block-type="image"
+						style="min-width: 1px; min-height: 1px; width: 356px; height: 356px; left: 302px; top: 172px;">
+						<div class="sl-block-content" style="z-index: 15;"><img data-natural-width="480"
+								data-natural-height="480" style="" data-lazy-loaded=""
+								data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/583471/images/4483327/jordyfive.gif">
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
