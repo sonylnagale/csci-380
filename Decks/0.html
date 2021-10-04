@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>reveal.js</title>
+	<title>Data Types, Conditionals, and Loops</title>
 
 	<link rel="stylesheet" href="dist/reset.css">
 	<link rel="stylesheet" href="dist/reveal.css">
@@ -27,7 +27,7 @@
 						<div class="sl-block-content headline"
 							style="z-index: 11; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui"
 							data-has-line-height="">
-							<h1>Data Types, Conditionals, and Loops&nbsp;</h1>
+							<h1>Data Types, Conditionals, and Loops</h1>
 						</div>
 					</div>
 
@@ -565,7 +565,11 @@ for (let i = 0; i &lt; pets.length; i++) {
 		// - https://revealjs.com/config/
 		Reveal.initialize({
 			hash: true,
-
+			width: 960,
+			height: 700,
+			transition: "fade",
+			backgroundTransition: "slide",
+			center: false,
 			// Learn about plugins: https://revealjs.com/plugins/
 			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
 		});
