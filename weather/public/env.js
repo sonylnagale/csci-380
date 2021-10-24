@@ -91,5 +91,5 @@ window.env = {
   "COLORTERM": "truecolor",
   "npm_node_execpath": "/Users/sonylnagale/.nvm/versions/node/v16.8.0/bin/node",
   "npm_config_version_tag_prefix": "v",
-  "OPEN_WEATHER_MAP_API_KEY": "66629e195fb0838dbcde83ebfad71adc"
+  "OPEN_WEATHER_MAP_API_KEY": ""
 };
