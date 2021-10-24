@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import env from "react-dotenv";
+import Spinner from './Spinner';
+import "./Weather.css"
 
 const { OPEN_WEATHER_MAP_API_KEY } = env
 console.log(OPEN_WEATHER_MAP_API_KEY)
@@ -13,8 +15,6 @@ const Weather = () => {
     })
 
     useEffect(() => {
-
-
         try {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition((location) => {
@@ -39,15 +39,21 @@ const Weather = () => {
     }, [latlon])
 
     return (
-        <>
-            {weather?.main && 
+        <div className="weather">
+            {weather?.main &&
                 <>
-                    <img src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`} alt={weather.weather[0].description} />
-                    <h1>{weather.main.temp}</h1>
-                    <h2>{weather.weather[0].description}</h2>
+                    <p className="date">{new Date(weather.dt * 1000).toLocaleString()}</p>
+                    <p className="temperature"><img src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`} alt={weather.weather[0].description} />{weather.main.temp} and {weather.weather[0].description}</p>
+                    <h2></h2>
                 </>
             }
-        </>
+            {
+                !weather?.main &&
+                <>
+                    <Spinner />
+                </>
+            }
+        </div>
     )
 }
 
