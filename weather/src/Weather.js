@@ -32,7 +32,7 @@ const Weather = () => {
 
     useEffect(() => {
         const { latitude, longitude } = latlon
-        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${OPEN_WEATHER_MAP_API_KEY}&units=imperial`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=40.7707237&lon=-73.9914229&appid=${OPEN_WEATHER_MAP_API_KEY}&units=imperial`)
             .then(data => data.json())
             .then(json => setWeather(json))
 
