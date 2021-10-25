@@ -1,0 +1,882 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Functions, Scope, and Objects</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	<link rel="stylesheet" href="css/sonyl.css">
+
+</head>
+
+<body>
+	<div class="theme-font-montserrat theme-color-black-blue" style="width: 100%; height: 100%;">
+		<div class="theme-font-montserrat theme-color-black-blue" style="width: 100%; height: 100%;">
+			<div class="reveal">
+				<div class="slides">
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 800px; left: 81px; top: 218px; height: auto;">
+							<div class="sl-block-content headline" style="z-index: 11; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="">
+								<h1>Functions, <span>Scope, and Objects</span>
+								</h1>
+							</div>
+						</div>
+		
+		
+						<div class="sl-block" data-block-type="iframe" style="min-width: 30px; min-height: 30px; width: 1264px; height: 616px; left: -151px; top: 271px;">
+							<div class="sl-block-content" style="z-index: 10;"><iframe webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-src="https://nagale.com/ga-js-dv/intro.html" allow="fullscreen"></iframe></div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 821px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Parameters</h1>
+							</div>
+						</div>
+						
+						<div class="sl-block" data-block-type="code" style="width: 800px; height: 174px; left: 80px; top: 280px;">
+							<div class="sl-block-content notranslate" style="z-index: 14;">
+								<pre class="javascript"><code>// Bad idea...
+function helloMarc() {
+	console.log('Hello, Marc');
+}
+
+function helloObama() {
+	console.log('Hello, Obama');
+}</code></pre>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: -48px; top: 490px;">
+							<div class="sl-block-content" style="z-index: 15;">
+								<ul>
+									<li class="fragment" data-fragment-index="0">Why is this a bad idea?</li>
+									<li class="fragment" data-fragment-index="1">How can we improve it?</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 821px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Codealong: Hello!</h1>
+							</div>
+						</div>
+						
+		
+						<div class="sl-block" data-block-type="iframe" style="width: 800px; height: 420px; left: 80px; top: 280px;">
+							<div class="sl-block-content" style="z-index: 14;"><iframe webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-src="//codepen.io/sonylnagale/embed/PEbrWG/?height=265&amp;theme-id=0&amp;default-tab=js,result&amp;embed-version=2&amp;editable=true"></iframe></div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 821px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Return</h1>
+							</div>
+						</div>
+						
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 280px;">
+							<div class="sl-block-content" style="z-index: 14;">
+								<p style="color:rgb(36, 41, 46); text-align:start">Sometimes we don't want to print to the console or update the DOM; rather, we want to update a variable or even call another function.</p>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 420px;">
+							<div class="sl-block-content fragment" style="z-index: 15;" data-fragment-index="0">
+								<p style="color:rgb(36, 41, 46); text-align:start">This is a <strong>return</strong>&nbsp;statement. When we <em>return</em> something, it ends the function's execution and "spits out" what we are returning.</p>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 821px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Return</h1>
+							</div>
+						</div>
+						
+						<div class="sl-block" data-block-type="code" style="width: 800px; height: 112px; left: 80px; top: 308px;">
+							<div class="sl-block-content notranslate" style="z-index: 14;">
+								<pre class="javascript"><code>function sum (x, y) {
+		  return x + y;
+		}
+		
+		var z = sum(3, 4);</code></pre>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 80px; top: 264px;">
+							<div class="sl-block-content" style="z-index: 15;">
+								<p style="text-align: left;">To a variable:</p>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="code" style="width: 800px; height: 200px; left: 80px; top: 500px;">
+							<div class="sl-block-content fragment notranslate" style="z-index: 16;" data-fragment-index="0">
+								<pre class="javascript"><code>function sum (x, y) {
+		  return x + y;
+		}
+		
+		function double (z) {
+		  return z * 2;
+		}
+		
+		var num = double(sum(3,4));</code></pre>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 80px; top: 448px;">
+							<div class="sl-block-content fragment" style="z-index: 17;" data-fragment-index="0">
+								<p style="text-align:left">To another function</p>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 821px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Return + More Code</h1>
+							</div>
+						</div>
+						
+						<div class="sl-block" data-block-type="code" style="width: 800px; height: 176px; left: 80px; top: 350px;">
+							<div class="sl-block-content notranslate" style="z-index: 14;">
+								<pre class="javascript"><code>function speak (words) {
+		  return words;
+		
+		  // The following statements will not run:
+		  var x = 1;
+		  var y = 2;
+		  console.log(x + y);
+		}</code></pre>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 80px; top: 280px;">
+							<div class="sl-block-content" style="z-index: 15;">
+								<p style="text-align:left">Uhm, no.</p>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 821px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Practice</h1>
+							</div>
+						</div>
+						
+						<div class="sl-block" data-block-type="code" style="width: 800px; height: 182px; left: 80px; top: 308px;">
+							<div class="sl-block-content notranslate" style="z-index: 14;">
+								<pre class="javascript"><code>console.log(isEven(64));
+		// true
+		console.log(isEven(93));
+		// false
+		
+		// Stretch goal: change the function to isEvenOrOdd without using `else`</code></pre>
+							</div>
+						</div>
+		
+		
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 821px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 11; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Show &amp; Tell</h1>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 80px; top: 14px;">
+							<div class="sl-block-content" data-line-x1="-293" data-line-y1="-236" data-line-x2="580" data-line-y2="-236" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="none" style="z-index: 12;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="873" height="1" viewBox="-293 -236 873 1">
+									<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-293" y1="-236" x2="580" y2="-236"></line>
+									<line class="line-element" stroke="#ffffff" stroke-width="2" x1="-293" y1="-236" x2="580" y2="-236"></line>
+								</svg>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 80px; top: 78px;">
+							<div class="sl-block-content" data-line-x1="-293" data-line-y1="-236" data-line-x2="580" data-line-y2="-236" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="none" style="z-index: 13;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="873" height="1" viewBox="-293 -236 873 1">
+									<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-293" y1="-236" x2="580" y2="-236"></line>
+									<line class="line-element" stroke="#ffffff" stroke-width="2" x1="-293" y1="-236" x2="580" y2="-236"></line>
+								</svg>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style="width: 360px; height: 36px; left: 80px; top: 29px; min-width: 1px; min-height: 1px;">
+							<div class="sl-block-content" style="z-index: 14;">
+								<img data-natural-width="1600" data-natural-height="160" style="" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/583471/images/3099106/GA_Horiz_Large_RedWhite_RGB.png">
+							</div>
+						</div>
+		
+		
+		
+						<div class="sl-block" data-block-type="iframe" style="min-width: 30px; min-height: 30px; width: 800px; height: 231px; left: 80px; top: 280px;">
+							<div class="sl-block-content" style="z-index: 15;"><iframe webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-src="//codepen.io/sonylnagale/embed/odMxvB/?height=265&amp;theme-id=0&amp;default-tab=js,result&amp;embed-version=2&amp;editable=true"></iframe></div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 821px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Show &amp; Tell</h1>
+							</div>
+						</div>
+						
+		
+		
+		
+						<div class="sl-block" data-block-type="iframe" style="width: 800px; height: 350px; left: 80px; top: 280px;">
+							<div class="sl-block-content" style="z-index: 14;"><iframe webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-src="//codepen.io/sonylnagale/embed/bMjppQ/?height=265&amp;theme-id=0&amp;default-tab=js,result&amp;embed-version=2&amp;editable=true"></iframe></div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 821px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Learning Objectives</h1>
+							</div>
+						</div>
+						
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 813px; left: 67px; top: 350px;">
+							<div class="sl-block-content" style="z-index: 14;" data-has-custom-html="">
+								<ul style="color:rgb(36, 41, 46)">
+									<li>Determine the scope of local and global variables</li>
+									<li class="fragment" data-fragment-index="0" style="font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400;  font-family: &quot;Open Sans&quot;, sans-serif; background-color: rgb(17, 17, 17);">Understand what objects are and can do</li>
+									<li class="fragment" data-fragment-index="1" style="font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400;  font-family: &quot;Open Sans&quot;, sans-serif; background-color: rgb(17, 17, 17);">Identify likely objects, attributes, and methods in real-world scenarios</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 821px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Scope</h1>
+							</div>
+						</div>
+						
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 80px; top: 280px;">
+							<div class="sl-block-content" style="z-index: 14;">
+								<ul>
+									<li style="text-align: left;">The set of variables able to be accessed</li>
+									<li style="text-align: left;" class="fragment" data-fragment-index="0">Global</li>
+									<li style="text-align: left;" class="fragment" data-fragment-index="1">Local</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 821px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Global Scope</h1>
+							</div>
+						</div>
+						
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 842px; left: 15px; top: 280px;">
+							<div class="sl-block-content" style="z-index: 14;">
+								<ul>
+									<li style="color: rgb(36, 41, 46); text-align: start;">You start off in Global Scope</li>
+									<li style="color: rgb(36, 41, 46); text-align: start;" class="fragment" data-fragment-index="0">If a variable is declared outside a function: global!</li>
+									<li style="color: rgb(36, 41, 46); text-align: start;" class="fragment" data-fragment-index="1">Any script or function on the page can reference it</li>
+								</ul>
+		
+								<pre style="text-align:left;font-size:13.6px">&nbsp;</pre>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="code" style="width: 800px; height: 37px; left: 80px; top: 420px;">
+							<div class="sl-block-content fragment notranslate" style="z-index: 15;" data-fragment-index="2">
+								<pre class="javascript"><code>var name = 'Sonyl';</code></pre>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 490px;">
+							<div class="sl-block-content fragment" style="z-index: 16;" data-fragment-index="3">
+								<p style="text-align:left">But be careful! Namespace collisions</p>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 80px; top: 560px;">
+							<div class="sl-block-content fragment" style="z-index: 17;" data-fragment-index="4">
+								<p style="text-align: left;">What is "namespace"?</p>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 821px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Local Scope</h1>
+							</div>
+						</div>
+						
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 842px; left: -11px; top: 280px;">
+							<div class="sl-block-content" style="z-index: 14;">
+								<ul>
+									<li style="color:rgb(36, 41, 46); text-align:start">If a variable is declared inside a function: local!</li>
+									<li class="fragment" style="color:rgb(36, 41, 46); text-align:start" data-fragment-index="0">Only that script or function has access to it</li>
+								</ul>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="code" style="width: 800px; height: 158px; left: 80px; top: 402px;">
+							<div class="sl-block-content fragment notranslate" style="z-index: 15;" data-fragment-index="1">
+								<pre class="javascript"><code>var a = "this is the global scope";
+		function myFunction() {
+		  var b = "this variable is defined in the local scope";
+		  console.log(b);
+		}
+		
+		myFunction();
+		</code></pre>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 591px;">
+							<div class="sl-block-content fragment" style="z-index: 16;" data-fragment-index="2">
+								<p style="text-align:left">No namespace collisions!</p>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 821px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Using Scope</h1>
+							</div>
+						</div>
+						
+		
+		
+						<div class="sl-block" data-block-type="code" style="width: 803px; height: 151px; left: 77px; top: 280px;">
+							<div class="sl-block-content notranslate" style="z-index: 14;">
+								<pre class="javascript"><code>var a = "this is the global scope";
+		function myFunction() {
+		  var b = "this variable is defined in the local scope";
+		}
+		
+		myFunction();
+		console.log(b);</code></pre>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 80px; top: 490px;">
+							<div class="sl-block-content fragment" style="z-index: 15;" data-fragment-index="0">
+								<p style="text-align: left;">What is the output of our console.log?</p>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 821px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Using Scope</h1>
+							</div>
+						</div>
+						
+						<div class="sl-block" data-block-type="code" style="width: 800px; height: 210px; left: 80px; top: 280px;">
+							<div class="sl-block-content notranslate" style="z-index: 14;">
+								<pre class="javascript"><code>// Global Scope
+		var a = "Hello";
+		
+		// This function is defined in the global scope
+		function sayHello(name) {
+			return a + " " + name;
+		}
+		
+		sayHello("Sonyl");
+		console.log(name);</code></pre>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 821px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Nested Function Scope</h1>
+							</div>
+						</div>
+						
+						<div class="sl-block" data-block-type="iframe" style="width: 800px; height: 350px; left: 80px; top: 350px;">
+							<div class="sl-block-content" style="z-index: 14;"><iframe webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-src="//codepen.io/sonylnagale/embed/vpbxgp/?height=265&amp;theme-id=0&amp;default-tab=js,result&amp;embed-version=2&amp;editable=true"></iframe></div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 821px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Scope Questions?</h1>
+							</div>
+						</div>
+						
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 873px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Review: Data Types</h1>
+							</div>
+						</div>
+						
+		
+						<div class="sl-block" data-block-type="table" style="height: auto; width: 800px; left: 80px; top: 280px;">
+							<div class="sl-block-content example-table" style="z-index: 14;" data-table-rows="6">
+								<table>
+									<tbody>
+										<tr>
+											<th style="width: 123px;">Data Type</th>
+											<th style="width: 394px;">Description</th>
+											<th>Example</th>
+										</tr>
+										<tr>
+											<td style="width: 123px;">String</td>
+											<td style="width: 394px;">Single words or sentences surrounded by double or single quotes
+												<br>
+												&nbsp;
+											</td>
+											<td>"puppies", "lots of puppies!"</td>
+										</tr>
+										<tr>
+											<td style="width: 123px;">NUMBER</td>
+											<td style="width: 394px;">Whole numbers or decimals</td>
+											<td>42, 1024, 3.14159</td>
+										</tr>
+										<tr>
+											<td style="width: 123px;">Boolean</td>
+											<td style="width: 394px;">Represents either true or false</td>
+											<td>true, false</td>
+										</tr>
+										<tr>
+											<td style="width: 123px;">​Array</td>
+											<td style="width: 394px;">Collections of Data</td>
+											<td>['Superman', 'Batman', 'Spider-Man']</td>
+										</tr>
+										<tr>
+											<td style="width: 123px;">Object</td>
+											<td style="width: 394px;">Many things! We'll get into this later</td>
+											<td>TODAY WE FIND OUT!</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 800px; left: 72px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Objects</h1>
+							</div>
+						</div>
+						
+		
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 280px;">
+							<div class="sl-block-content" style="z-index: 14;">
+								<ul>
+									<li>Collections of properties</li>
+									<li class="fragment" data-fragment-index="0">Properties = association between a key and a value</li>
+									<li class="fragment" data-fragment-index="1">Used in two ways:
+										<ul>
+											<li class="">Simple structured data store</li>
+											<li class="">Programming paradigm to structure and categorize code</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 800px; left: 72px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>OBJECT PROPERTIES</h1>
+							</div>
+						</div>
+						
+		
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 72px; top: 226px;">
+							<div class="sl-block-content" style="z-index: 14;">
+								<ul>
+									<li>An object is an associative array (a hash or dictionary in other languages)</li>
+									<li class="fragment" data-fragment-index="0">Associative array = a data type composed of a collection of (key, value) pairs, such that each possible key appears at most once in the collection.</li>
+									<li class="fragment" data-fragment-index="1">NOT ordered, unlike arrays</li>
+									<li class="fragment" data-fragment-index="2">Properties = variables attached to an object</li>
+								</ul>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="code" style="width: 800px; height: 182px; left: 80px; top: 518px;">
+							<div class="sl-block-content fragment notranslate" style="z-index: 15;" data-fragment-index="3">
+								<pre class="javascript"><code>var myObject = {
+			name: "Sonyl",
+			age: 37,
+			favoriteThings: [
+				"puppies",
+				"food",
+				"wine"
+			]
+		};</code></pre>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Creating Objects</h1>
+							</div>
+						</div>
+						
+						<div class="sl-block" data-block-type="code" style="width: 800px; height: 240px; left: 80px; top: 280px;">
+							<div class="sl-block-content notranslate" style="z-index: 14;">
+								<pre class="javascript"><code>var myHouse = {};
+		
+		var myDog = new Object();
+		
+		// We can also create objects populated with data
+		var myPuppy = {
+			breed: "Scottish Terrier",
+			color: "black",
+			age: 2,
+			humans: ["Sonyl", "Bryan"],
+			name: "Scotty"
+		}</code></pre>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="code" style="width: 800px; height: 140px; left: 80px; top: 560px;">
+							<div class="sl-block-content fragment notranslate" style="z-index: 15;" data-fragment-index="0">
+								<pre class="javascript"><code>// Dot notation 
+		myHouse.windows = 3;
+		myHouse.address = "Chelsea, Manhattan";
+		
+		// Bracket notation
+		myHouse["num-of-closets"] = 1;
+		myHouse["doors"] = 3;</code></pre>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>ACCESSING PROPERTIES</h1>
+							</div>
+						</div>
+						
+						<div class="sl-block" data-block-type="code" style="width: 800px; height: 159px; left: 80px; top: 350px;">
+							<div class="sl-block-content notranslate" style="z-index: 14;">
+								<pre class="javascript"><code>myHouse.windows; //returns 3
+		myHouse.address; // returns "Chelsea, Manhattan"
+		
+		
+		// bracket notation
+		myHouse["num-of-closets"]; // returns 1
+		
+		var numDoors = "doors";
+		myHouse[numDoors]; // returns 3
+		
+		myPuppy.age; // returns 2</code></pre>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="code" style="width: 800px; height: 40px; left: 80px; top: 560px;">
+							<div class="sl-block-content fragment notranslate" style="z-index: 15;" data-fragment-index="0">
+								<pre class="javascript"><code>myHouse[0]; // what would we get?</code></pre>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="code" style="width: 800px; height: 36px; left: 80px; top: 631px;">
+							<div class="sl-block-content fragment notranslate" style="z-index: 16;" data-fragment-index="1">
+								<pre class="javascript"><code>myHouse.0 = "something"; // how about this?</code></pre>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Iterating</h1>
+							</div>
+						</div>
+						
+						<div class="sl-block" data-block-type="code" style="width: 800px; height: 140px; left: 80px; top: 280px;">
+							<div class="sl-block-content notranslate" style="z-index: 14;">
+								<pre class="javascript"><code>for (var i in myHouse) {
+		  if (myHouse.hasOwnProperty(i)) { 
+			// The "hasOwnProperty" method returns true if 
+			// an object property has a certain key
+			  console.log(i + " = " + myHouse[i] + "\n");
+		  }
+		}</code></pre>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 490px;">
+							<div class="sl-block-content fragment" style="z-index: 15;" data-fragment-index="0">
+								<p style="text-align:left">But! It's expensive—Use sparingly.</p>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 80px; top: 560px;">
+							<div class="sl-block-content fragment" style="z-index: 16;" data-fragment-index="1">
+								<p style="text-align: left;">Why "hasOwnProperty" ?</p>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Copying Objects</h1>
+							</div>
+						</div>
+						
+						<div class="sl-block" data-block-type="code" style="width: 800px; height: 140px; left: 80px; top: 280px;">
+							<div class="sl-block-content notranslate" style="z-index: 14;">
+								<pre class="javascript"><code>var yourHouse = myHouse;
+		yourHouse.doors; // returns 2
+		myHouse.doors; // returns 2
+		
+		yourHouse.doors = 4;
+		myHouse.doors; // returns 4</code></pre>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 490px;">
+							<div class="sl-block-content fragment" style="z-index: 15;" data-fragment-index="0">
+								<p style="text-align:left">Not what you'd expect, eh?</p>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 560px;">
+							<div class="sl-block-content fragment" style="z-index: 16;" data-fragment-index="1">
+								<p style="text-align: left;">Not duplication, but references the original.</p>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Basic example of cloning an object</h1>
+							</div>
+						</div>
+						
+						<div class="sl-block" data-block-type="code" style="width: 800px; height: 140px; left: 80px; top: 350px;">
+							<div class="sl-block-content notranslate" style="z-index: 14;">
+								<pre class="javascript"><code>var obj = { a: 1 };
+		var copy = Object.assign({}, obj);
+		console.log(copy); // { a: 1 }
+		copy.a = 3;
+		console.log(copy.a); // {a: 3}
+		console.log(obj.a); // {a: 1}</code></pre>
+							</div>
+						</div>
+		
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Deep Cloning vs. Shallow cloning</h1>
+							</div>
+						</div>
+						
+		
+		
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 350px;">
+							<div class="sl-block-content" style="z-index: 14;">
+								<p style="text-align:left"><em>Shallow Clone</em>: It makes a copy of the reference to X into Y. Think about it as a copy of X’s Address. So, the addresses of X and Y will be the same i.e. they will be pointing to the same memory location.</p>
+		
+								<p style="text-align:left">&nbsp;</p>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 544px;">
+							<div class="sl-block-content" style="z-index: 15;">
+								<p style="text-align:left"><em>Deep clone</em>: It makes a copy of all the members of X, allocates different memory location for Y and then assigns the copied members to Y to achieve deep copy. In this way, if X vanishes Y is still valid in the memory.</p>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Deep Cloning vs. Shallow cloning: A diagram</h1>
+							</div>
+						</div>
+						
+		
+		
+						<div class="sl-block" data-block-type="image" style="width: 390px; height: 189px; left: 285px; top: 441px; min-width: 1px; min-height: 1px;">
+							<div class="sl-block-content" style="z-index: 14;"><img data-natural-width="390" data-natural-height="189" style="" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/583471/images/4528021/0_RGt-o4ovYiIt_9nS.png"></div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>How do we deep clone?</h1>
+							</div>
+						</div>
+						
+		
+		
+						<div class="sl-block" data-block-type="code" style="width: 800px; height: 227px; left: 80px; top: 350px;">
+							<div class="sl-block-content notranslate" style="z-index: 14;">
+								<pre class="javascript"><code>function keepCloning(objectpassed) {
+		  if (objectpassed === null || typeof objectpassed !== 'object') {
+			 return objectpassed;
+		  }
+		// give temporary-storage the original obj's constructor
+		var temporaryStorage = objectpassed.constructor(); 
+		  for (var key in objectpassed) {
+			temporaryStorage[key] = keepCloning(objectpassed[key]);
+		  }
+		  return temporaryStorage;
+		}</code></pre>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>The REal World</h1>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 80px; top: 14px;">
+							<div class="sl-block-content" data-line-x1="-293" data-line-y1="-236" data-line-x2="580" data-line-y2="-236" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="873" height="1" viewBox="-293 -236 873 1">
+									<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-293" y1="-236" x2="580" y2="-236"></line>
+									<line stroke="#ffffff" stroke-width="2" x1="-293" y1="-236" x2="580" y2="-236"></line>
+								</svg>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 80px; top: 78px;">
+							<div class="sl-block-content" data-line-x1="-293" data-line-y1="-236" data-line-x2="580" data-line-y2="-236" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="none" style="z-index: 12;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="873" height="1" viewBox="-293 -236 873 1">
+									<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-293" y1="-236" x2="580" y2="-236"></line>
+									<line stroke="#ffffff" stroke-width="2" x1="-293" y1="-236" x2="580" y2="-236"></line>
+								</svg>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style="width: 360px; height: 36px; left: 80px; top: 29px; min-width: 4px; min-height: 4px;">
+							<div class="sl-block-content" style="z-index: 13;">
+								<img data-natural-width="1600" data-natural-height="160" style="" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/583471/images/3099106/GA_Horiz_Large_RedWhite_RGB.png">
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 280px;">
+							<div class="sl-block-content" style="z-index: 14;">
+								<p style="text-align: left;">The website shopping cart: how could we represent it as an object?</p>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="iframe" style="width: 800px; height: 280px; left: 80px; top: 420px;">
+							<div class="sl-block-content" style="z-index: 15;"><iframe webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock" data-src="//codepen.io/sonylnagale/embed/yzXdPz/?height=265&amp;theme-id=0&amp;default-tab=js&amp;embed-version=2&amp;editable=true"></iframe></div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Practice</h1>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 80px; top: 14px;">
+							<div class="sl-block-content" data-line-x1="-293" data-line-y1="-236" data-line-x2="580" data-line-y2="-236" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="873" height="1" viewBox="-293 -236 873 1">
+									<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-293" y1="-236" x2="580" y2="-236"></line>
+									<line stroke="#ffffff" stroke-width="2" x1="-293" y1="-236" x2="580" y2="-236"></line>
+								</svg>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 80px; top: 78px;">
+							<div class="sl-block-content" data-line-x1="-293" data-line-y1="-236" data-line-x2="580" data-line-y2="-236" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="none" style="z-index: 12;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="873" height="1" viewBox="-293 -236 873 1">
+									<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-293" y1="-236" x2="580" y2="-236"></line>
+									<line stroke="#ffffff" stroke-width="2" x1="-293" y1="-236" x2="580" y2="-236"></line>
+								</svg>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style="width: 360px; height: 36px; left: 80px; top: 29px; min-width: 4px; min-height: 4px;">
+							<div class="sl-block-content" style="z-index: 13;">
+								<img data-natural-width="1600" data-natural-height="160" style="" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/583471/images/3099106/GA_Horiz_Large_RedWhite_RGB.png">
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 280px;">
+							<div class="sl-block-content" style="z-index: 14;">
+								<p style="text-align:left">Take 5 minutes in groups to write down objects, attributes, and methods of one of the following scenarios (don't worry about getting the syntax exactly right)</p>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 66px; top: 443px;">
+							<div class="sl-block-content" style="z-index: 15;">
+								<ul>
+									<li>
+										<p><span style="font-size:0.7em">Reporting software analyzes the snow removal performance of each snow plow driver in the city.</span></p>
+									</li>
+									<li>
+										<p><span style="font-size:0.7em">Albert uses a cooking website enters the number of dinner guests, and the cooking website adjusts all the recipes accordingly.</span></p>
+									</li>
+									<li>
+										<p><span style="font-size:0.7em">Betty searches for her reservation on a hotel website and changes the arrival date and room type.</span></p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content" style="z-index: 10; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="" data-fragment-index="0">
+								<h1>Show and Tell</h1>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 80px; top: 14px;">
+							<div class="sl-block-content" data-line-x1="-293" data-line-y1="-236" data-line-x2="580" data-line-y2="-236" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="873" height="1" viewBox="-293 -236 873 1">
+									<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-293" y1="-236" x2="580" y2="-236"></line>
+									<line stroke="#ffffff" stroke-width="2" x1="-293" y1="-236" x2="580" y2="-236"></line>
+								</svg>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 80px; top: 78px;">
+							<div class="sl-block-content" data-line-x1="-293" data-line-y1="-236" data-line-x2="580" data-line-y2="-236" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="none" style="z-index: 12;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="873" height="1" viewBox="-293 -236 873 1">
+									<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-293" y1="-236" x2="580" y2="-236"></line>
+									<line stroke="#ffffff" stroke-width="2" x1="-293" y1="-236" x2="580" y2="-236"></line>
+								</svg>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style="width: 360px; height: 36px; left: 80px; top: 29px; min-width: 4px; min-height: 4px;">
+							<div class="sl-block-content" style="z-index: 13;">
+								<img data-natural-width="1600" data-natural-height="160" style="" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/583471/images/3099106/GA_Horiz_Large_RedWhite_RGB.png">
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 280px;">
+							<div class="sl-block-content" style="z-index: 14;">
+								<p style="text-align:left">Each group should present their work!</p>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="sl-block" data-block-type="text" style="width: 880px; left: 80px; top: 140px; height: auto;">
+							<div class="sl-block-content headline" style="z-index: 11; text-align: left; font-size: 150%; line-height: 0.767;" dir="ui" data-has-line-height="">
+								<h1>Exit Tickets and Thanks!</h1>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 80px; top: 14px;">
+							<div class="sl-block-content" data-line-x1="-293" data-line-y1="-236" data-line-x2="580" data-line-y2="-236" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="none" style="z-index: 12;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="873" height="1" viewBox="-293 -236 873 1">
+									<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-293" y1="-236" x2="580" y2="-236"></line>
+									<line stroke="#ffffff" stroke-width="2" x1="-293" y1="-236" x2="580" y2="-236"></line>
+								</svg>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 80px; top: 78px;">
+							<div class="sl-block-content" data-line-x1="-293" data-line-y1="-236" data-line-x2="580" data-line-y2="-236" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="none" style="z-index: 13;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="873" height="1" viewBox="-293 -236 873 1">
+									<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-293" y1="-236" x2="580" y2="-236"></line>
+									<line stroke="#ffffff" stroke-width="2" x1="-293" y1="-236" x2="580" y2="-236"></line>
+								</svg>
+							</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style="width: 360px; height: 36px; left: 80px; top: 29px; min-width: 4px; min-height: 4px;">
+							<div class="sl-block-content" style="z-index: 14;">
+								<img data-natural-width="1600" data-natural-height="160" style="" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/583471/images/3099106/GA_Horiz_Large_RedWhite_RGB.png">
+							</div>
+						</div>
+		
+						<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 389px; height: 297px; left: 286px; top: 358px;">
+							<div class="sl-block-content" style="z-index: 15;"><img data-natural-width="500" data-natural-height="382" style="" data-lazy-loaded="" data-src="https://media.giphy.com/media/kRD44Hi9HisU0/giphy.gif"></div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+			width: 960,
+			height: 700,
+			transition: "fade",
+			backgroundTransition: "slide",
+			center: false,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
