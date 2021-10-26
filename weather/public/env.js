@@ -4,7 +4,7 @@ window.env = {
   "APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL": "true",
   "ChocolateyInstall": "C:\\ProgramData\\chocolatey",
   "ChocolateyLastPathUpdate": "132778589995705140",
-  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\crashpad_9752_YQAUDXXAFFJMOAIO",
+  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\crashpad_2976_SAGJYRHZWVYNBVTJ",
   "COLORTERM": "truecolor",
   "CommonProgramFiles": "C:\\Program Files\\Common Files",
   "CommonProgramFiles(x86)": "C:\\Program Files (x86)\\Common Files",

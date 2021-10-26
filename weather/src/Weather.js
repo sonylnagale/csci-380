@@ -6,6 +6,14 @@ const { OPEN_WEATHER_MAP_API_KEY } = env
 const Weather = () => 
 {
 
+    const [weather, setWeather] = useState()
+
+    const [latlon, setLatlon] = useState
+    ({
+            latitude: undefined,
+            longitude: undefined
+    })
+
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=40.7707237&lon=-73.9914229&appid=${OPEN_WEATHER_MAP_API_KEY}&units=imperial`)
 
     useEffect(() => 
@@ -14,17 +22,12 @@ const Weather = () =>
             .then(data => data.json())
             .then(json => {
                 console.log(json)
+                setWeather(json)
             })
 
     }, [])
 
-    const [weather, setWeather] = useState({})
 
-    const [latlon, setLatlon] = useState
-    ({
-            latitude: undefined,
-            longitude: undefined
-    })
 
     return (
         <>
