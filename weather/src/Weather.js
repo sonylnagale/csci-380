@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 import env from "react-dotenv";
 
 const { OPEN_WEATHER_MAP_API_KEY } = env
@@ -36,4 +36,4 @@ const Weather = () =>
     )
 }
 
-export default Weather;
+export default Weather

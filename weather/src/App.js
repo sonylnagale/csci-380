@@ -6,9 +6,6 @@ function App() {
     <div className="App">
       <Weather />
     </div>
-
-
-
   );
 }
 
